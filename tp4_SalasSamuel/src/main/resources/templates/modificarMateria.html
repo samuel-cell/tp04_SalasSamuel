@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<title>Modificar Materia</title>
+</head>
+<body>
+
+	<header>
+		<div data-th-replace="~{fragments/header :: header}">
+		</div>
+		<div data-th-replace="~{fragments/navbar :: navbar}">
+		</div>
+	</header>
+
+	<div class="container form">
+		<h1>Modificar Materia</h1>
+		<form data-th-object="${materiaModificada}" data-th-action="@{/modificarMateria}" method="post">
+		
+			<div class="mb-3">
+				<label for="codigo" class="form-label">Codigo</label> 
+				<input type="text" class="form-control" id="codigo" data-th-field="*{codigo}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="nombre" class="form-label">Nombre de la materia</label>
+				<input type="text" class="form-control" id="nombre" data-th-field="*{nombre}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="curso" class="form-label">Curso</label>
+				<input type="text" class="form-control" id="curso" data-th-field="*{curso}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="carrera" class="form-label">Carrera</label>
+				<select class="form-select" id="carrera" data-th-field="*{carrera.codigo}">    
+					<option data-th-each="c : ${carreras}" data-th-value="${c.codigo}" data-th-text="${c.nombre}+'-'+${c.anios}+'-'+${c.estado}"></option>   
+				</select> 
+			</div>
+			
+			<div class="mb-3">
+				<label for="docente" class="form-label">Docente</label>
+				<select class="form-select" id="docente" data-th-field="*{docente.legajo}">    
+					<option data-th-each="d : ${docentes}" data-th-value="${d.legajo}" data-th-text="${d.nombre}+'-'+${d.apellido}+'-'+${d.email}+'-'+${d.telefono}"></option>   
+				</select> 
+			</div>
+			
+			<div class="mb-3">
+				<label for="modalidad" class="form-label">Modalidad</label>
+				<select id="modalidad" class="form-control" data-th-field="*{modalidad}">
+					<option value="Virtual">Virtual</option>
+					<option value="Presencial">Presencial</option>
+				</select>
+			</div>
+			
+			<button type="submit" class="btn btn-success">Modificar</button>
+		</form>
+	</div>
+	
+	<footer>
+		<div data-th-replace="~{fragments/footer :: footer}">
+		</div>
+	</footer>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

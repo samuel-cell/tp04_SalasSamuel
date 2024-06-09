@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<title>Modificar Docente</title>
+</head>
+<body>
+
+	<header>
+		<div data-th-replace="~{fragments/header :: header}">
+		</div>
+		<div data-th-replace="~{fragments/navbar :: navbar}">
+		</div>
+	</header>
+
+	<div class="container form">
+		<h1>Modificar Docente</h1>
+		<form data-th-object="${docenteModificado}" data-th-action="@{/modificarDocente}" method="post">
+		
+			<div class="mb-3">
+				<label for="legajo" class="form-label">Legajo</label> 
+				<input type="number" class="form-control" id="legajo" data-th-field="*{legajo}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="nombreDocente" class="form-label">Nombre del Docente</label>
+				<input type="text" class="form-control" id="nombreDocente" data-th-field="*{nombre}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="apellido" class="form-label">Apellido del Docente</label>
+				<input type="text" class="form-control" id="apellido" data-th-field="*{apellido}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="email" class="form-label">Correo del Docente</label>
+				<input type="text" class="form-control" id="email" data-th-field="*{email}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="telefono" class="form-label">Telefono del Docente</label>
+				<input type="text" class="form-control" id="telefono" data-th-field="*{telefono}">
+			</div>
+			
+			<button type="submit" class="btn btn-success">Modificar</button>
+		</form>
+	</div>
+	
+	<footer>
+		<div data-th-replace="~{fragments/footer :: footer}">
+		</div>
+	</footer>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

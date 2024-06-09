@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<title>Listado de Docentes</title>
+</head>
+<body>
+
+	<header>
+		<div data-th-replace="~{fragments/header :: header}">
+		</div>
+		<div data-th-replace="~{fragments/navbar :: navbar}">
+		</div>
+	</header>
+
+	<div class="container">
+		<h1>Listado de Docentes</h1>
+		<table class="table table-striped table-info">
+			<thead>
+				<tr>
+					<th scope="col">Legajo</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Correo</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Edicion</th>
+				</tr>
+			</thead>
+			<tbody data-th-each="docente : ${listadoDocentes}">
+				<tr>
+					<td data-th-text="${docente.legajo}"></td>
+					<td data-th-text="${docente.nombre}"></td>
+					<td data-th-text="${docente.apellido}"></td>
+					<td data-th-text="${docente.email}"></td>
+					<td data-th-text="${docente.telefono}"></td>
+					<td >
+						<a data-th-href="@{'/eliminarDocente/' + ${docente.legajo}}" class="btn btn-danger">Eliminar</a>
+						
+						<a data-th-href="@{'/modificarDocente/' + ${docente.legajo}}" class="btn btn-warning">Modificar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<footer>
+		<div data-th-replace="~{fragments/footer :: footer}">
+		</div>
+	</footer>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+</body>
+</html>

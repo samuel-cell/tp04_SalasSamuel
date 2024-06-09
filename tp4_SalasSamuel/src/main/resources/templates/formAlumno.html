@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Formulario Alumno</title>
+</head>
+<body>
+	<header>
+		<div data-th-replace="~{fragments/header :: header}">
+		</div>
+		<div data-th-replace="~{fragments/navbar :: navbar}">
+		</div>
+	</header>
+
+	<div class="container form">
+		<h1>Formulario Alumno</h1>
+		<form data-th-object="${nuevoAlumno}" data-th-action="@{/guardarAlumno}" method="post">
+		
+			<div class="mb-3">
+				<label for="dni" class="form-label">DNI</label> 
+				<input type="text" class="form-control" id="dni" data-th-field="*{dni}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="nombre" class="form-label">Nombre</label>
+				<input type="text" class="form-control" id="nombre" data-th-field="*{nombre}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="apellido" class="form-label">Apellido</label>
+				<input type="text" class="form-control" id="apellido" data-th-field="*{apellido}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="email" class="form-label">Correo</label>
+				<input type="email" class="form-control" id="email" data-th-field="*{email}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="telefono" class="form-label">Telefono</label>
+				<input type="text" class="form-control" id="telefono" data-th-field="*{telefono}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
+				<input type="date" class="form-control" id="nacimiento" data-th-field="*{nacimiento}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="domicilio" class="form-label">Domicilio</label>
+				<input type="text" class="form-control" id="domicilio" data-th-field="*{domicilio}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="lu" class="form-label">Libreta Universitaria</label>
+				<input type="text" class="form-control" id="lu" data-th-field="*{LU}">
+			</div>
+			
+			<button type="submit" class="btn btn-success">Guardar</button>
+			<a data-th-href="@{'/listaDeAlumnos'}" class="btn btn-info">Ver Lista</a>
+		</form>
+	</div>
+	<footer>
+		<div data-th-replace="~{fragments/footer :: footer}">
+		</div>
+	</footer>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
