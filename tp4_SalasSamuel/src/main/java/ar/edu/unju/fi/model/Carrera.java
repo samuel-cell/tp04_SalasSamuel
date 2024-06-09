@@ -1,46 +1,53 @@
 package ar.edu.unju.fi.model;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Carrera {
 	private String codigo;
-    private String nombre;
-    private int cantidadAnios;
-    private String estado;
+	private String nombre;
+	private int anios;
+	private boolean estado;
+	
+	public Carrera() {
+	}
+	
+	public Carrera(String codigo, String nombre, int anios, boolean estado) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.anios = anios;
+		this.estado = estado;
+	}
+	
+	public String getCodigo() {
+		return codigo;
+	}
 
-    public Carrera(String codigo, String nombre, int cantidadAnios, String estado) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.cantidadAnios = cantidadAnios;
-        this.estado = estado;
-    }
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 
-    public String getCodigo() {
-        return codigo;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public int getAnios() {
+		return anios;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setAnios(int anios) {
+		this.anios = anios;
+	}
 
-    public int getCantidadAnios() {
-        return cantidadAnios;
-    }
+	public boolean getEstado() {
+		return estado;
+	}
 
-    public void setCantidadAnios(int cantidadAnios) {
-        this.cantidadAnios = cantidadAnios;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
 }
